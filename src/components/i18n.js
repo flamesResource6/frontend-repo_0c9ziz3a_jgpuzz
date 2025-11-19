@@ -264,7 +264,7 @@ export function I18nProvider({ children }) {
   }, [lang])
 
   const value = useMemo(() => ({ t: translations[lang] ?? translations[defaultLang], lang, setLang }), [lang])
-  return <I18nContext.Provider value={value}>{children}</I18nContext.Provider>
+  return React.createElement(I18nContext.Provider, { value }, children)
 }
 
 export function useI18n() {
